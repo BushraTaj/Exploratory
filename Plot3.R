@@ -1,0 +1,6 @@
+> NEI <- readRDS("summarySCC_PM25.rds")
+> SCC <- readRDS("Source_Classification_Code.rds")
+> pm_bal <- subset(NEI, fips == "24510")
+dim(pm_bal)
+> plo4 <- ggplot(pm_bal, aes(pm_bal$type, pm_bal$Emission))+ geom_col(aes(fill=pm_bal$type))+facet_grid(.~pm_bal$year)+theme(axis.text.x=element_text(size=4))+labs(x="Types of Sources", y="PM2.5 Emission")
+> png('plot4.png', height =480, width = 480)
